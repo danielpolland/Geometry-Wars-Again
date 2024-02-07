@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     public Enemy[] possibleenemies;
     public float spawntime = 2;
 
-    // Start is called before the first frame update
+   
     void Start()
     {
         InvokeRepeating("SpawnEnemy", spawntime, spawntime);

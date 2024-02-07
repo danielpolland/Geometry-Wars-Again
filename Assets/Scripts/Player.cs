@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
         GetComponent<ObjectHealth>();
     }
 
-    // Update is called once per frame
+   //ensures player is able to aim in different directions
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         Bullet BulletInstance = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
         BulletInstance.SetDirection(transform.up);
     }
-
+    //ensures enemies are removed upon contact with player
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))

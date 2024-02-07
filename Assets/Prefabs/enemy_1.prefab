@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4443888956148112041}
   m_Layer: 0
   m_Name: enemy_1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -148,8 +148,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &7484413446427762961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee42f57ba62e974d8196d8488fc985f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementspeed: 10
+  enemydamage: 5
+  shouldavoidatcloserange: 0
+  avoidanceDistance: 2
+  body: {fileID: 2409655476203055102}
+  player: {fileID: 336600276549323102, guid: 3db1ce976dc277c47b97092d390cf852, type: 3}
+  enemyhealth: {fileID: 7484413446427762961}

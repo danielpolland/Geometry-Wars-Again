@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectHealth : MonoBehaviour
+    //reusable variables
 {
     public float health = 100;
     public float maxhealth = 100;

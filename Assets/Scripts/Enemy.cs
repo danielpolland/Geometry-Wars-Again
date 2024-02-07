@@ -15,23 +15,33 @@ public class Enemy : MonoBehaviour
     
     public ObjectHealth enemyhealth;
 
-
-    // Update is called once per frame
+    //start method used to ensure enemies follow player
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+    //update ensures enemies constantly follow player
     void Update()
     {
+        transform.up = (player.transform.position - transform.position).normalized;
+
+        direction = transform.up;
+
         if (shouldavoidatcloserange)
         {
             if (Vector2.Distance(player.transform.position, transform.position) <= avoidanceDistance)
             { direction *= -1; }
         }
 
-        transform.up = (transform.position - player.transform.position).normalized;
+       
     }
 
     private void FixedUpdate()
     {
-        body.velocity = transform.forward * movementspeed;
+        body.velocity = direction*movementspeed;
     }
+
+    //ensures enemies are removed once they run out of health
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -39,8 +49,10 @@ public class Enemy : MonoBehaviour
             
           Bullet b = collision.gameObject.GetComponent<Bullet>();
             enemyhealth.health -= b.bulletdamage;
-            Destroy(b);
+            Destroy(b.gameObject);
+            if (enemyhealth.health <= 0) {Destroy(gameObject); }
         }
+
 
        
     }

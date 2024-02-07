@@ -7,6 +7,7 @@ public class FollowCamera : MonoBehaviour
     public Transform objecttofollow;
     Vector3 targetposition;
 
+    //constantly moves camera to where player is
      void LateUpdate()
     {
         targetposition.x = objecttofollow.position.x;
